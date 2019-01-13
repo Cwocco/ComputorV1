@@ -1,15 +1,16 @@
 #ifndef CPARSER_H
 #define CPARSER_H
 
-#include <QDebug>
-
+#include <QString>
 
 class CParser
 {
 public:
     CParser();
 
-    void run();
+private:
+
+    QString m_read;
 };
 
 #endif // CPARSER_H
