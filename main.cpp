@@ -4,6 +4,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    // CCore object
     if (argc > 2)
         return 0;
 
