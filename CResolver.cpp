@@ -7,6 +7,11 @@ CResolver::CResolver()
 
 }
 
+CPoly::CPoly()
+{
+
+}
+
 double CResolver::getDelta() const
 {
     return m_delta;

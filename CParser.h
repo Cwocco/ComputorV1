@@ -1,8 +1,9 @@
 #ifndef CPARSER_H
 #define CPARSER_H
+
 #include <QString>
 #include <QChar>
-
+#include <QDebug>
 /*
 
 $>./computor "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
@@ -22,6 +23,7 @@ Polynomial degree: 3
 The polynomial degree is stricly greater than 2, I can't solve.
 
  * */
+class CProcess;
 
 class CParser
 {
@@ -30,14 +32,33 @@ public:
 
     void    setDegree(int degree);
     int     getDegree() const;
-    int     checkDegree(QChar degree) const;
 
+    void    setReaded(QString readed);
+    QString getReaded() const;
+
+    void    setParsed(QString parsed);
+    QString getParsed() const;
+
+    int     checkDegree(QChar degree) const;
     int     checkExposant(QChar exposant) const;
+    int     checkEq(QChar eq) const;
+    int     checkSign(QChar sign) const;
+    int     checkX(QChar x) const;
+    int     checkNumber(QChar nb) const;
+    //int     avoidSpaces(QChar spaces) const;
+
+    int     entryPointCheck(QString toParse, int index) const;
+    int     globalCheck(QString toParse, int index) const;
+    int     readnParse();
+
+protected:
+
+    CProcess & m_process;
 
 private:
 
     QString m_readed;
-    QString m_toParse;
+    QString m_parsed;
     int     m_degree;
 };
 

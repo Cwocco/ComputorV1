@@ -53,11 +53,13 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		CParser.cpp \
 		CCore.cpp \
-		CResolver.cpp 
+		CResolver.cpp \
+		CCalculator.cpp 
 OBJECTS       = main.o \
 		CParser.o \
 		CCore.o \
-		CResolver.o
+		CResolver.o \
+		CCalculator.o
 DIST          = ../../Qt/5.10.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.10.0/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.10.0/clang_64/mkspecs/features/device_config.prf \
@@ -245,10 +247,12 @@ DIST          = ../../Qt/5.10.0/clang_64/mkspecs/features/spec_pre.prf \
 		test.pro CParsercpp \
 		CParser.h \
 		CCore.h \
-		CResolver.h main.cpp \
+		CResolver.h \
+		CCalculatorh main.cpp \
 		CParser.cpp \
 		CCore.cpp \
-		CResolver.cpp
+		CResolver.cpp \
+		CCalculator.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -653,8 +657,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.10.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents CParsercpp CParser.h CCore.h CResolver.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp CParser.cpp CCore.cpp CResolver.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents CParsercpp CParser.h CCore.h CResolver.h CCalculatorh $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp CParser.cpp CCore.cpp CResolver.cpp CCalculator.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -710,7 +714,9 @@ main.o: main.cpp ../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QCoreAppl
 
 CParser.o: CParser.cpp CParser.h \
 		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
-		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h
+		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QChar \
+		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qchar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CParser.o CParser.cpp
 
 CCore.o: CCore.cpp CCore.h
@@ -722,6 +728,9 @@ CResolver.o: CResolver.cpp CResolver.h \
 		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CResolver.o CResolver.cpp
+
+CCalculator.o: CCalculator.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CCalculator.o CCalculator.cpp
 
 ####### Install
 

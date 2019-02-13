@@ -18,7 +18,9 @@ SOURCES += \
         main.cpp \
     CParser.cpp \
     CCore.cpp \
-    CResolver.cpp
+    CResolver.cpp \
+    CCalculator.cpp \
+    CProcess.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -26,7 +28,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    CParsercpp \
     CParser.h \
     CCore.h \
-    CResolver.h
+    CResolver.h \
+    CCalculator.h \
+    CProcess.h

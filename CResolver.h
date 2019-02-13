@@ -60,9 +60,9 @@ public:
 private:
 
     double m_delta = 0;
-    QString m_sol1 = "";
-    QString m_sol2 = "";
-    QString m_onlySoluce = "";
+    double m_sol1 = 0;
+    double m_sol2 = 0;
+    double m_onlySoluce = 0;
     QString m_complexeSoluce1 = "";
     QString m_complexeSoluce2 = "";
 
